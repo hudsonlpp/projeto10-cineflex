@@ -2,23 +2,23 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Success({ reservation, showtime }) {
-console.log(showtime)
+  console.log(showtime)
     return (
         <SuccessDiv>
             <div>
                 Pedido feito com sucesso!
             </div>
             <div>
-                <h1>Filme e sessão</h1>
-                <p>{showtime.movie}</p>
-                <p>{showtime.date} {showtime.hour}</p>
-                <h1>Ingressos</h1>
+                <h1 data-test="movie-info">Filme e sessão</h1>
+                <p>{showtime.movie.title}</p>
+                <p>{showtime.day.date} {showtime.name}</p>
+                <h1 data-test="seats-info" >Ingressos</h1>
                 {reservation.ids.map((seat, index) => <p key={index}>Assento {seat}</p>)}
-                <h1>Comprador</h1>
+                <h1 data-test="client-info">Comprador</h1>
                 <p>Nome: {reservation.name}</p>
                 <p>CPF: {reservation.cpf}</p>
             </div>
-            <Link to="/">
+            <Link data-test="go-home-btn" to="/">
                 <StyledButton width="225px" height="42px">Voltar para Home</StyledButton>
             </Link>
         </SuccessDiv>
@@ -27,7 +27,7 @@ console.log(showtime)
 
 const SuccessDiv = styled.div`
     > div:first-child{
-        width: 175px;
+        width: 100%;
         height: 65px;
         font-size: 24px;
         font-weight: 700;
@@ -37,7 +37,7 @@ const SuccessDiv = styled.div`
     }
     > div:nth-child(2){
         color: #293845;
-        width: 100vw;
+        width: 100%;
         padding: 0 30px;
         h1{
             font-weight: 700;
@@ -60,6 +60,7 @@ const SuccessDiv = styled.div`
 `;
 
 export const StyledButton = styled.button`
+    margin top: 62px;
     width: ${props => props.width};
     height: ${props => props.height};
     color: #FFFFFF;

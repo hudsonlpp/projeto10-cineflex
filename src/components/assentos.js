@@ -64,35 +64,35 @@ export default function Seats( {reservation, setReservation, showtime, setShowti
             );
           })}
         </SeatsContainer>
-        <Labels>
-          <Label>
+        <Tags>
+          <Tag>
             <div className="selected"></div>
             <p>Selecionado</p>
-          </Label>
-          <Label>
+          </Tag>
+          <Tag>
             <div></div>
             <p>Disponível</p>
-          </Label>
-          <Label>
+          </Tag>
+          <Tag>
             <div className="unavailable"></div>
             <p>Indisponível</p>
-          </Label>
-        </Labels>
+          </Tag>
+        </Tags>
         <form action="" method="GET" onSubmit={(e) => handleSubmit(e)}>
-          <InputGroup>
-            <label htmlFor="name">Nome do comprador:</label>
-            <input type="text" onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..." required/>
-          </InputGroup>
+          <StyledInput>
+            <div htmlFor="name">Nome do comprador:</div>
+            <input data-test="client-name" type="text" onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..." required/>
+          </StyledInput>
 
-          <InputGroup>
-            <label htmlFor="name">CPF do comprador:</label>
-            <input type="text" onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..." required/>
-          </InputGroup>
+          <StyledInput>
+            <div htmlFor="name">CPF do comprador:</div>
+            <input data-test="client-cpf" type="text" onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..." required/>
+          </StyledInput>
 
-          <button type="submit">Reservar assento(s)</button>
+          <StyledButton  data-test="book-seat-btn" type="submit">Reservar assento(s)</StyledButton>
         </form>
       </Container>
-      <Footer
+      <Footer 
         img={showtime.movie?.posterURL}
         title={showtime.movie?.title}
         showtime={`${showtime.day?.weekday} - ${showtime.name}`}
@@ -125,12 +125,12 @@ export const SeatsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export const Labels = styled.div`
+export const Tags = styled.div`
   display: flex;
   padding: 0 20px;
 `;
 
-export const Label = styled.div`
+export const Tag = styled.div`
   flex: 3;
   text-align: center;
   > div {
@@ -158,5 +158,51 @@ export const Label = styled.div`
   }
 `;
 
-export const InputGroup = styled.div`
+export const StyledInput = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    padding: 15px;
+    > input{
+      font-style: italic;
+      width: 309px;
+      height: 50px;
+      background: #FFFFFF;
+      border: 1px solid #D5D5D5;
+      border-radius: 3px;
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      display: flex;
+      align-items: center;
+      color: #AFAFAF;
+
+    }
+    
+`;
+
+export const StyledButton = styled.button`
+    margin-left: calc(50% - 112.5px);
+    margin-top: 57px;
+    width: 225px;
+    height: 42px;
+    left: 74px;
+    top: 622px;
+    color: #FFFFFF;
+    background-color: #E8833A;
+    border-radius: 3px;
+    margin-right: 8px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    > a{
+        color: inherit;
+        text-decoration: none;
+    }
 `;

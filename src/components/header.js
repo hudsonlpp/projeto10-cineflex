@@ -25,7 +25,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 50px;
-  text-transform: uppercase;
+  font-family: 'Roboto';
   font-weight: 400;
+  font-size: 34px;
+  text-transform: uppercase;
 `;

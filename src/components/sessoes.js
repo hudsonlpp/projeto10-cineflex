@@ -27,18 +27,18 @@ export default function Sessions() {
         </Title>
         {movie.days?.map((day) => {
           return (
-            <TimeBox key={day.id}>
-              <p>
+            <Time key={day.id}>
+              <p data-test="movie-day">
                 {day.weekday} - {day.date}
               </p>
               {day.showtimes?.map((showtime) => {
                 return (
                   <Link to={`/assentos/${showtime.id}`}>
-                    <button>{showtime.name}</button>
+                    <button data-test="showtime" >{showtime.name}</button>
                   </Link>
                 );
               })}
-            </TimeBox>
+            </Time>
           );
         })}
       </Container>
@@ -62,11 +62,12 @@ export const Title = styled.div`
   }
 `;
 
-export const TimeBox = styled.div`
+export const Time = styled.div`
   p {
     font-size: 20px;
     font-weight: 400;
     width: 100%;
+    margin-bottom: 22px;
   }
   button {
     background: #e8833a;

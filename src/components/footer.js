@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function Footer(props) {
+  console.log(props)
   return (
     <Container>
       <img src={props.img} alt="Imagem" />
