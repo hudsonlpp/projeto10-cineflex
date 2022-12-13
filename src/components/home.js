@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { Movie, MovieList, Title } from "./Home.styled";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container, Title } from "./Header.styled";
 
 export default function Header() {
   return (
@@ -30,5 +29,3 @@ export const Title = styled.h1`
   text-transform: uppercase;
   font-weight: 400;
 `;
- 34  
-src

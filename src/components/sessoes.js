@@ -2,8 +2,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Container, TimeBox, Title } from "./Sessions.styled";
-import Footer from "../../components/Footer/Footer";
+import Footer from "./footer";
 
 export default function Sessions() {
   const { id } = useParams();

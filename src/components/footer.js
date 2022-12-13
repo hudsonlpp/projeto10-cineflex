@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Container } from "./Footer.styled";
 
 export default function Footer(props) {
   return (

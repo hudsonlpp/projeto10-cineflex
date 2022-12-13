@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { Button } from "./Seat.styled";
 
 export default function Seat(props) {
 
@@ -19,10 +17,7 @@ export default function Seat(props) {
   return (
     <>
       {props.seat.isAvailable ? (
-        <Button
-          className={isSelected(props.seat.id) ? "selected" : null}
-          onClick={() => selectSeat(props.seat.id)}
-        >
+        <Button className={isSelected(props.seat.id) ? "selected" : null} onClick={() => selectSeat(props.seat.id)}>
           {String(props.index + 1).padStart(2, "0")}
         </Button>
       ) : (

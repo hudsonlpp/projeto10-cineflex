@@ -6,8 +6,16 @@ import Sessions from "./components/sessoes";
 import Home from "./components/home";
 import Header from "./components/header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [showtime, setShowtime] = useState({});
+  const [reservation, setReservation] = useState({
+    ids: [],
+    name: "",
+    cpf: ""
+  });
+
   return (
     <BrowserRouter>
       <GlobalStyle />
@@ -15,12 +23,13 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/sessoes/:id" element={<Sessions />}></Route>
-      <Route path="/assentos/:id" element={<Seats />}></Route>
-      <Route path="/sucesso" element={<Success />}></Route>
+      <Route path="/assentos/:id" element={<Seats  reservation={reservation} setReservation={setReservation} showtime={showtime} setShowtime={setShowtime}/>}></Route>
+      <Route path="/sucesso" element={<Success reservation={reservation} showtime={showtime}/>}></Route>
       </Routes>
     </BrowserRouter>
   );
 }
+
 export const Body = styled.div`
   margin: 0;
     padding: 0;
